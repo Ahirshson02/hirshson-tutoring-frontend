@@ -2,6 +2,7 @@
   "expo": {
     "name": "Adam Hirshson - Math Tutor",
     "slug": "adam-hirshson-math-tutoring",
+    "experiments": { "baseUrl": "/<repo-name>" },
     "version": "1.0.0",
     "orientation": "portrait",
     "web": {
