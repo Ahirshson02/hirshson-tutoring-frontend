@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "Adam Hirshson - Math Tutor",
+    "slug": "adam-hirshson-math-tutoring",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/adam-about.jpg"
+    },
+    "plugins": [
+      "expo-asset"
+    ]
+  }
+}
