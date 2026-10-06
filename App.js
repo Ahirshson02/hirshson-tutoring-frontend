@@ -42,7 +42,7 @@ export default function App() {
   const goToAvailability = () => goTo('availability');
 
   const pad = wide ? 64 : 24;
-  const NAV = [['About', 'about'], ['Reviews', 'reviews'], ['Availability', 'availability']];
+  const NAV = [['About', 'about'], ['Reviews', 'reviews'], ['Availability', 'availability'], ['FAQ', 'faq']];
 
   return (
     <View style={styles.root}>
@@ -99,21 +99,7 @@ export default function App() {
             </View>
           </View>
         </View>
-
-        {/* Reviews */}
-        <View onLayout={track('reviews')} style={[styles.section, { paddingHorizontal: pad }]}>
-          <Text style={styles.h2}>What parents &amp; students say</Text>
-          <View style={[styles.reviewRow, { flexDirection: wide ? 'row' : 'column' }]}>
-            {REVIEWS.map((r, i) => (
-              <View key={i} style={styles.review}>
-                <View style={styles.quoteMark}><Text style={styles.quoteGlyph}>“</Text></View>
-                <Text style={styles.reviewText}>{r.quote}</Text>
-                <Text style={styles.reviewAuthor}>{r.author}</Text>
-              </View>
-            ))}
-          </View>
-        </View>
-
+        
         {/* Availability */}
         <View onLayout={track('availability')} style={[styles.section, { paddingHorizontal: pad, backgroundColor: colors.mist }]}>
           <Text style={styles.h2}>Availability</Text>
@@ -144,8 +130,25 @@ export default function App() {
               ))}
             </View>
           )}
-          <View style={{ alignSelf: 'flex-start', marginTop: 8 }}><BookButton onPress={goToAvailability} /></View>
+          {/* <View style={{ alignSelf: 'flex-start', marginTop: 8 }}><BookButton onPress={goToAvailability} /></View> */}
         </View>
+
+
+        {/* Reviews */}
+        <View onLayout={track('reviews')} style={[styles.section, { paddingHorizontal: pad }]}>
+          <Text style={styles.h2}>What parents &amp; students say</Text>
+          <View style={[styles.reviewRow, { flexDirection: wide ? 'row' : 'column' }]}>
+            {REVIEWS.map((r, i) => (
+              <View key={i} style={styles.review}>
+                <View style={styles.quoteMark}><Text style={styles.quoteGlyph}>“</Text></View>
+                <Text style={styles.reviewText}>{r.quote}</Text>
+                <Text style={styles.reviewAuthor}>{r.author}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+
+        
 
         <View style={styles.footer}>
           <Text style={styles.footerText}>© {new Date().getFullYear()} Adam Hirshson. All rights reserved.</Text>

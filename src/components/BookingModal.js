@@ -4,7 +4,7 @@ import { colors, fonts } from '../theme';
 import { SUBJECTS } from '../data/content';
 import api from '../services/ApiService';
 
-const EMPTY = { guardianName: '', studentName: '', subject: '', notes: '', wantsRecurring: false, wantsMultiplePerWeek: false };
+const EMPTY = { guardianName: '', studentName: '', phoneNumber: '', subject: '', notes: '', wantsRecurring: false, wantsMultiplePerWeek: false };
 
 function Checkbox({ label, checked, onChange }) {
   return (
@@ -32,6 +32,7 @@ export default function BookingModal({ slot, onClose, onBooked }) {
     const next = {};
     if (!form.guardianName.trim()) next.guardianName = 'Enter a parent or guardian name.';
     if (!form.studentName.trim()) next.studentName = 'Enter the student’s name.';
+    if (!form.phoneNumber.trim()) next.phoneNumber = 'Enter a contact number.';
     if (!form.subject) next.subject = 'Choose a subject.';
     setErrors(next);
     if (Object.keys(next).length) return;
@@ -72,7 +73,18 @@ export default function BookingModal({ slot, onClose, onBooked }) {
               <Field label="Student name" error={errors.studentName}>
                 <TextInput style={styles.input} value={form.studentName} onChangeText={set('studentName')} />
               </Field>
-
+              <Field label="Phone number" error={errors.phoneNumber}>
+              <TextInput
+                style={styles.input}
+                value={form.phoneNumber}
+                onChangeText={set('phoneNumber')}
+                keyboardType="phone-pad"
+                autoComplete="tel"
+                textContentType="telephoneNumber"
+                placeholder="(555) 123-4567"
+                placeholderTextColor="#7A8D93"
+              />
+            </Field>
               <Field label="Subject" error={errors.subject}>
                 <View style={styles.chips}>
                   {SUBJECTS.map((s) => {
