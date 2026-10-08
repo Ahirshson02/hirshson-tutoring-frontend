@@ -89,17 +89,7 @@ export default function App() {
           </View>
         </View>
 
-        {/* About */}
-        <View onLayout={track('about')} style={[styles.aboutBand, { paddingHorizontal: pad }]}>
-          <Text style={[styles.h2, { color: colors.white }]}>A little about me</Text>
-          <View style={{ flexDirection: wide ? 'row' : 'column', alignItems: wide ? 'center' : 'flex-start', gap: 40 }}>
-            <Image source={require('./assets/adam-about.jpg')} style={styles.aboutPhoto} resizeMode="cover" accessibilityLabel="Portrait of Adam Hirshson" />
-            <View style={{ flex: 1, gap: 16, maxWidth: 620 }}>
-              {ABOUT_TEXT.map((t, i) => <Text key={i} style={styles.aboutText}>{t}</Text>)}
-            </View>
-          </View>
-        </View>
-        
+
         {/* Availability */}
         <View onLayout={track('availability')} style={[styles.section, { paddingHorizontal: pad, backgroundColor: colors.mist }]}>
           <Text style={styles.h2}>Availability</Text>
@@ -133,6 +123,19 @@ export default function App() {
           {/* <View style={{ alignSelf: 'flex-start', marginTop: 8 }}><BookButton onPress={goToAvailability} /></View> */}
         </View>
 
+
+
+        {/* About */}
+        <View onLayout={track('about')} style={[styles.aboutBand, { paddingHorizontal: pad }]}>
+          <Text style={[styles.h2, { color: colors.white }]}>A little about me</Text>
+          <View style={{ flexDirection: wide ? 'row' : 'column', alignItems: wide ? 'center' : 'flex-start', gap: 40 }}>
+            <Image source={require('./assets/adam-about.jpg')} style={styles.aboutPhoto} resizeMode="cover" accessibilityLabel="Portrait of Adam Hirshson" />
+            <View style={{ flex: 1, gap: 16, maxWidth: 620 }}>
+              {ABOUT_TEXT.map((t, i) => <Text key={i} style={styles.aboutText}>{t}</Text>)}
+            </View>
+          </View>
+        </View>
+        
 
         {/* Reviews */}
         <View onLayout={track('reviews')} style={[styles.section, { paddingHorizontal: pad }]}>

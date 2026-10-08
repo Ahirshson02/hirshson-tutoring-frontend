@@ -1,44 +1,37 @@
-import { WEEKDAYS, SAMPLE_TIMES } from '../data/content';
+// Set EXPO_PUBLIC_API_URL at build time (e.g. https://your-api.onrender.com).
+const API_BASE_URL = (process.env.EXPO_PUBLIC_API_URL || 'http://localhost:5000').replace(/\/$/, '');
+const NETWORK_ERROR = 'Could not reach the server. Please try again.';
 
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+async function request(path, options = {}) {
+  try {
+    const res = await fetch(`${API_BASE_URL}${path}`, {
+      headers: { 'Content-Type': 'application/json' },
+      ...options,
+    });
+    return await res.json(); // { success: true, ... } or { success: false, message }
+  } catch (e) {
+    return { success: false, message: NETWORK_ERROR };
+  }
+}
 
-// Hardcoded sample data until the backend exists.
-const SAMPLE_AVAILABILITIES = WEEKDAYS.map((day) => ({
-  day,
-  slots: SAMPLE_TIMES.map((time) => ({ id: `${day}-${time}`, day, time })),
-}));
-
-const SAMPLE_BOOKINGS = [];
-
-/**
- * Single place for all server communication.
- * Swap the bodies below for real fetch() calls when the backend is ready.
- */
 export class ApiService {
-  constructor(baseUrl = '') {
-    this.baseUrl = baseUrl; // e.g. 'https://api.example.com'
-  }
-
-  /** @returns {Promise<Array<{day: string, slots: Array<{id, day, time}>}>>} */
+  /** @returns {Promise<Array<{day: string, slots: Array<{id, day, time}>}>>} open weekly slots */
   async getAvailabilities() {
-    await delay(250);
-    return SAMPLE_AVAILABILITIES; // TODO: GET `${this.baseUrl}/availabilities`
-  }
-
-  /** @returns {Promise<Array>} existing bookings */
-  async getBookings() {
-    await delay(150);
-    return SAMPLE_BOOKINGS; // TODO: GET `${this.baseUrl}/bookings`
+    const data = await request('/api/availabilities');
+    return data.success ? data.availabilities : [];
   }
 
   /**
-   * @param {{slot, guardianName, studentName, subject, notes, wantsRecurring, wantsMultiplePerWeek}} bookingData
+   * @param {{slotId, guardianName, studentName, email, phone?, subject, notes?, wantsRecurring, wantsMultiplePerWeek}} bookingData
+   * @returns {Promise<{success: true, booking: object} | {success: false, message: string}>}
    */
   async bookSessions(bookingData) {
-    console.log('[ApiService.bookSessions] submitted:', bookingData);
-    await delay(600);
-    // TODO: POST `${this.baseUrl}/bookings`
-    return { success: true, bookingId: `sample-${Date.now()}`, booking: bookingData };
+    return request('/api/bookings', { method: 'POST', body: JSON.stringify(bookingData) });
+  }
+
+  /** No public endpoint by design: view bookings in Supabase (bookings_view). */
+  async getBookings() {
+    return [];
   }
 }
 
