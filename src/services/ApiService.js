@@ -1,5 +1,5 @@
 // Set EXPO_PUBLIC_API_URL at build time (e.g. https://your-api.onrender.com).
-const API_BASE_URL = (process.env.EXPO_PUBLIC_API_URL || 'http://localhost:5000').replace(/\/$/, '');
+const API_BASE_URL = (process.env.EXPO_PUBLIC_API_URL).replace(/\/$/, ''); // || 'http://localhost:8080'
 const NETWORK_ERROR = 'Could not reach the server. Please try again.';
 
 async function request(path, options = {}) {
