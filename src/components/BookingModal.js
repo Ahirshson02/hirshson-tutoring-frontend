@@ -234,7 +234,7 @@ export default function BookingModal({ slot, onClose, onBooked }) {
             <View style={{ gap: 16 }}>
               <Text style={styles.title}>Session requested</Text>
               <Text style={styles.body}>
-                {form.studentName}’s session on {slot?.day} at {slot?.time} has been requested. You’ll hear back to confirm.
+                {form.studentName}’s session on {slot?.day} at {slot?.time} has been requested. I will reach out via text shortly to share more details.
               </Text>
               <Pressable style={styles.primary} onPress={onClose}><Text style={styles.primaryText}>Close</Text></Pressable>
             </View>

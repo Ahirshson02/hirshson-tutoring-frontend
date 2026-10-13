@@ -5,6 +5,7 @@ export const colors = {
   paper: '#FBF6F1',      // page background
   sun: '#E8913A',        // accent (buttons, quote marks)
   sunDeep: '#C9741F',
+  beige: '#faf5f0',
   white: '#FFFFFF',
   black: '#000000',
 };

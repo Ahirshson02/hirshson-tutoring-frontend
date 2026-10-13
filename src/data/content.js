@@ -2,7 +2,7 @@
 export const SUBJECTS = [
   { name: 'Middle School', blurb: 'Fractions, ratios, and pre-algebra, taken at the pace the student needs.' },
   { name: 'Algebra', blurb: 'Equations, functions, and graphing, with the "why" behind every step.' },
-  { name: 'Geometry', blurb: 'Proofs, angles, area, and volume made visual and concrete.' },
+  //{ name: 'Geometry', blurb: 'Proofs, angles, area, and volume made visual and concrete.' },
   { name: 'Pre-Calculus', blurb: 'Trig functions, logarithms, complex numbers, and the tools students need before calculus.' },
   // { name: 'Computer Science', blurb: 'Programming and Comp Sci fundamentals, problem solving, and preparing for the AP exam.' },
 ];
