@@ -198,7 +198,7 @@ export default function BookingModal({ slot, onClose, onBooked }) {
     }
 
     if (form.email.trim() !== '') {
-      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email.trim())) {
+      if (form.email !== '' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) {
         next.email = 'Enter a valid email address.';
       }
     }

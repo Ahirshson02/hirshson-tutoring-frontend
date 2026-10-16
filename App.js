@@ -48,7 +48,7 @@ export default function App() {
 }, []);
 
   const pad = wide ? 64 : 24;
-  const NAV = [['Availability', 'availability'],['About', 'about'], ['FAQ', 'faq'],['Reviews', 'reviews'] , ];
+  const NAV = [['Availability', 'availability'],['About', 'about'], ['FAQ', 'faq'] ]; //['Reviews', 'reviews']
 
   const faqItems = Array.isArray(FAQ)
     ? FAQ.map((item) => {
@@ -199,7 +199,7 @@ export default function App() {
       </View>
 
         {/* Reviews */}
-        <View onLayout={track('reviews')} style={[styles.section, { paddingHorizontal: pad }]}>
+        {/* <View onLayout={track('reviews')} style={[styles.section, { paddingHorizontal: pad }]}>
           <Text style={styles.h2}>What parents &amp; students say</Text>
           <View style={[styles.reviewRow, { flexDirection: wide ? 'row' : 'column' }]}>
             {REVIEWS.map((r, i) => (
@@ -210,7 +210,7 @@ export default function App() {
               </View>
             ))}
           </View>
-        </View>
+        </View> */}
 
         
 
@@ -256,7 +256,7 @@ const styles = StyleSheet.create({
 
   aboutBand: { backgroundColor: colors.slate, paddingVertical: 72, gap: 28 },
   aboutPhoto: { width: 240, height: 300, borderRadius: 24 },
-  aboutText: { fontFamily: fonts.body, fontSize: 18, lineHeight: 28, color: colors.white },
+  aboutText: { fontFamily: fonts.body, fontSize: 20, lineHeight: 28, color: colors.white },
 
   reviewRow: { gap: 24, marginTop: 8 },
   review: { flex: 1, gap: 14, backgroundColor: colors.white, padding: 28, borderRadius: 20 },
