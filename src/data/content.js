@@ -5,6 +5,7 @@ export const SUBJECTS = [
   //{ name: 'Geometry', blurb: 'Proofs, angles, area, and volume made visual and concrete.' },
   { name: 'Pre-Calculus', blurb: 'Trig functions, logarithms, complex numbers, and the tools students need before calculus.' },
   // { name: 'Computer Science', blurb: 'Programming and Comp Sci fundamentals, problem solving, and preparing for the AP exam.' },
+  { name: "SAT/ACT/PERT", blurb: "Standardized test preparation with official test materials to learn, practice, and master the concepts students will see."}
 ];
 
 // PLACEHOLDER: replace with real reviews.
