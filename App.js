@@ -103,7 +103,7 @@ export default function App() {
 
           <View style={[styles.heroBody, { paddingHorizontal: pad, flexDirection: wide ? 'row' : 'column' }]}>
             <View style={{ flex: 1, gap: 24, paddingVertical: wide ? 40 : 8 }}>
-              <Text style={[styles.h1, { fontSize: wide ? 64 : 42, lineHeight: wide ? 70 : 48 }]}>Math doesn’t have to be intimidating.</Text>
+              <Text style={[styles.h1, { fontSize: wide ? 64 : 42, lineHeight: wide ? 70 : 48 }]}>Level up in math today!</Text>
               <Text style={styles.lead}>Personalized one-on-one math tutoring for students who want to understand, not just memorize.</Text>
               <Text style={styles.freeAdvert}>First session free, book it now!</Text>
               <View style={{ alignSelf: 'flex-start' }}><BookButton onPress={goToAvailability} /></View>
