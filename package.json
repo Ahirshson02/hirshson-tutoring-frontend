@@ -6,10 +6,10 @@
     "start": "expo start",
     "web": "expo start --web",
     "build:web": "cross-env EXPO_BASE_URL=/hirshson-tutoring-frontend expo export --platform web"
-
   },
   "dependencies": {
     "@expo/metro-runtime": "~4.0.1",
+    "cross-env": "^10.1.0",
     "expo": "~52.0.0",
     "expo-asset": "~11.0.5",
     "react": "18.3.1",
