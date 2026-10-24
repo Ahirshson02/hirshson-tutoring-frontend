@@ -4,6 +4,10 @@ import { colors, fonts } from './src/theme';
 import { SUBJECTS, REVIEWS, ABOUT_TEXT, FAQ } from './src/data/content';
 import api from './src/services/ApiService';
 import BookingModal from './src/components/BookingModal';
+import { usePath, linkProps } from './router';
+import Privacy from './privacy';
+//import { Link } from 'expo-router';
+
 
 const gridBg = Platform.select({
   web: {
@@ -22,7 +26,7 @@ function BookButton({ onPress }) {
   );
 }
 
-export default function App() {
+function Home() {
   const { width } = useWindowDimensions();
   const wide = width >= 860;
   const scrollRef = useRef(null);
@@ -214,9 +218,11 @@ export default function App() {
 
         
 
-        <View style={styles.footer}>
-          <Text style={styles.footerText}>© {new Date().getFullYear()} Adam Hirshson. All rights reserved.</Text>
-        </View>
+          // footer:
+         <View style={styles.footer}>
+           <Text style={styles.footerText}>© {new Date().getFullYear()} Adam Hirshson. All rights reserved.</Text>
+           <Text style={styles.footerLink} {...linkProps('/privacy')}>Privacy</Text>
+         </View>
       </ScrollView>
 
       <BookingModal
@@ -226,6 +232,10 @@ export default function App() {
       />
     </View>
   );
+}
+export default function App() {
+  const path = usePath();
+  return path === '/privacy' ? <Privacy /> : <Home />;
 }
 
 const styles = StyleSheet.create({
@@ -281,6 +291,9 @@ const styles = StyleSheet.create({
   faqChevron: { fontSize: 22, color: colors.slate },
   faqAnswer: { fontFamily: fonts.body, fontSize: 17, lineHeight: 26, color: colors.slateDeep, paddingHorizontal: 24, paddingBottom: 22 },
 
-  footer: { padding: 28, alignItems: 'center', backgroundColor: colors.slateDeep },
+  // footer: { padding: 28, alignItems: 'center', backgroundColor: colors.slateDeep },
+  // footerText: { fontFamily: fonts.body, fontSize: 14, color: colors.mist },
+  footer: { padding: 28, alignItems: 'center', backgroundColor: colors.slateDeep, gap: 8 },
   footerText: { fontFamily: fonts.body, fontSize: 14, color: colors.mist },
+  footerLink: { fontFamily: fonts.body, fontSize: 14, color: colors.mist, textDecorationLine: 'underline' },
 });

@@ -8,7 +8,7 @@
     "web": {
       "bundler": "metro",
       "output": "single",
-      "favicon": "./assets/adam-about.jpg"
+      "favicon": "./public/favicon.png"
     },
     "plugins": [
       "expo-asset"
