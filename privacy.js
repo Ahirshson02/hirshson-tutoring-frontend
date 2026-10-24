@@ -4,7 +4,7 @@ import { linkProps } from './router';
 import { colors, fonts } from './src/theme'; // use the same import path as your home page
 
 const UPDATED = 'October 24, 2026';
-const CONTACT_EMAIL = (process.env.EXPO_PUBLIC_EMAIL).replace(/\/$/, '') || "localemail.com"; // replace
+const CONTACT_EMAIL = (process.env.EXPO_PUBLIC_EMAIL).replace(/\/$/, '') // replace
 
 export default function Privacy() {
   useEffect(() => {
