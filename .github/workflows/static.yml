@@ -27,6 +27,8 @@ jobs:
       - run: npm run build:web
         env:
           EXPO_PUBLIC_API_URL: ${{ secrets.API_URL }}
+          EXPO_PUBLIC_EMAIL: ${{secrets.EMAIL}}
+          EXPO_PUBLIC_PHONE: ${{secrets.PHONE}}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
