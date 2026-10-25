@@ -218,7 +218,7 @@ function Home() {
 
         
 
-          // footer:
+          
          <View style={styles.footer}>
            <Text style={styles.footerText}>© {new Date().getFullYear()} Adam Hirshson. All rights reserved.</Text>
            <Text style={styles.footerLink} {...linkProps('/privacy')}>Privacy</Text>

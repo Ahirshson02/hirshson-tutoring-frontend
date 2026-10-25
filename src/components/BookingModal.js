@@ -197,11 +197,10 @@ export default function BookingModal({ slot, onClose, onBooked }) {
       next.phone = 'Enter a valid 10-digit phone number.';
     }
 
-    if (form.email.trim() !== '') {
-      if (form.email !== '' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) {
-        next.email = 'Enter a valid email address.';
-      }
+    if (form.email !== '' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) {
+      next.email = 'Enter a valid email address.';
     }
+  
     
     if (!form.subject) next.subject = 'Choose a subject.';
     setErrors(next);
@@ -253,7 +252,7 @@ export default function BookingModal({ slot, onClose, onBooked }) {
                 <TextInput selectTextOnFocus style={styles.input} value={form.phone} onChangeText={set('phone')} keyboardType="phone-pad" autoComplete="tel" />
               </Field>
 
-              <Field label="Email (optional)" error={errors.email}>
+              <Field label="Email" error={errors.email}>
                 <TextInput selectTextOnFocus style={styles.input} value={form.email} onChangeText={set('email')} keyboardType="email-address" autoCapitalize="none" autoComplete="email" />
               </Field>
               
