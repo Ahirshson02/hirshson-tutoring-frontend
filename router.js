@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 
 // '/your-repo-name' if the site is at username.github.io/your-repo-name
 // '' if you use a user site (username.github.io) or a custom domain
-export const BASE = __DEV__ ? '' : '/hirshson-tutoring-frontend';
+export const BASE = "";
 
 function currentPath() {
   if (Platform.OS !== 'web') return '/';
