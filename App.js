@@ -4,6 +4,7 @@ import { colors, fonts } from './src/theme';
 import { SUBJECTS, REVIEWS, ABOUT_TEXT, FAQ } from './src/data/content';
 import api from './src/services/ApiService';
 import BookingModal from './src/components/BookingModal';
+import ContactModal from './src/components/ContactModal';
 import { usePath, linkProps } from './router';
 import Privacy from './privacy';
 //import { Link } from 'expo-router';
@@ -36,6 +37,8 @@ function Home() {
   const [bookedIds, setBookedIds] = useState([]);
   const [openFaq, setOpenFaq] = useState(null);
   const [navHeight, setNavHeight] = useState(0);
+  const [contactOpen, setContactOpen] = useState(false);
+  const phone = process.env.EXPO_PUBLIC_PHONE;
 
   useEffect(() => {
     api.getAvailabilities().then(setAvailabilities);
@@ -135,7 +138,14 @@ function Home() {
         {/* Availability */}
         <View onLayout={track('availability')} style={[styles.section, { paddingHorizontal: pad, backgroundColor: colors.mist }]}>
           <Text style={styles.h2}>Availability</Text>
-          <Text style={styles.sectionNote}>Choose a time to request a session.</Text>
+          <View style={styles.availbilityRow}>
+            <Text style={styles.sectionNote}>Choose a time to request a session.</Text>
+            <Pressable onPress={() => setContactOpen(true)} accessibilityRole="button">
+              <Text style={styles.contactLink}>Don't see a time, or have problems booking?</Text>
+            </Pressable>
+          </View>
+
+          <ContactModal visible={contactOpen} onClose={() => setContactOpen(false)} />
           {!availabilities ? (
             <ActivityIndicator color={colors.slate} />
           ) : (
@@ -259,7 +269,9 @@ const styles = StyleSheet.create({
   section: { paddingVertical: 72, gap: 20 },
   h2: { fontFamily: fonts.display, fontSize: 36, fontWeight: '700', color: colors.slateDeep },
   sectionNote: { fontFamily: fonts.body, fontSize: 17, color: colors.slateDeep },
+  contactLink: { fontFamily: fonts.body, fontSize: 17, color: colors.slateDeep, textDecorationLine: 'underline',},
   serviceRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 20, marginTop: 8 },
+  availbilityRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, marginTop: 8 },
   service: { flexGrow: 1, flexBasis: 220, maxWidth: 360, gap: 8, borderTopWidth: 3, borderTopColor: colors.sun, paddingTop: 14 },
   serviceName: { fontFamily: fonts.display, fontSize: 22, fontWeight: '700', color: colors.slateDeep },
   serviceBlurb: { fontFamily: fonts.body, fontSize: 16, lineHeight: 24, color: colors.slateDeep },
