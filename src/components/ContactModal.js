@@ -1,6 +1,6 @@
 import { Modal, Pressable, StyleSheet, Text, View, Linking } from 'react-native';
 import { colors, fonts } from '../theme';
-
+//note
 export default function ContactModal({
   visible,
   onClose,
