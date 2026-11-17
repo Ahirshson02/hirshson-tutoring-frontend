@@ -239,7 +239,7 @@ export default function BookingModal({ slot, onClose, onBooked }) {
             </View>
           ) : (
             <ScrollView contentContainerStyle={{ gap: 14 }} keyboardShouldPersistTaps="handled">
-              <Text style={styles.title}>Book {slot?.day} at {slot?.time}</Text>
+              <Text style={styles.title}>Book {slot?.day} at {slot?.time} EST</Text>
 
               <Field label="Parent / guardian name" error={errors.guardianName}>
                 <TextInput selectTextOnFocus style={styles.input} value={form.guardianName} onChangeText={set('guardianName')} autoComplete="name" />

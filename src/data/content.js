@@ -21,13 +21,13 @@ export const ABOUT_TEXT = [
 ];
 
 export const FAQ= [
+  {"What, how, and when do I pay for sessions?" : "Payment is $45 per session, due by end of day, and can be sent via Zelle or Cashapp. Details to be given after scheduling"},
   {'Do you accept scholarships/grants?' : 'I\'m a registered Florida Step Up For Students Scholarship provider available on its Markplace by searching "Adam Hirshson", and am happy to provide invoices for other scholarships/grants upon request.'},
   {'What is your teaching style?' : 'I build my lessons around the I do, We do, You do model. I will explain a concept, narrate through a problem to completion. We then work collaboratively on a similar problem, taking turns completing steps while I ask questions about the process and answer any they have. Lastly, I will give the student time to complete a problem 100% independently, that we will then review together, with opportunity to learn from mistakes.'},
   {"How can I adjust or cancel my session?" : "As soon as you decide you need to move or cancel your session, call or text me at the number you receive during the initial booking and we can work on rescheduling."},
   {"What if I am late to a session?" : "If a student is late to a session, it will still end at the originally scheduled time to respect other students' class times."},
-  {"How and when do I pay for sessions?" : "Payment is due by end of session day, and can be sent via Zelle or Cashapp. Details to be given after scheduling"}
+  
 ]
-
 export const WEEKDAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 // Sample availability: Monday-Friday, 5pm-7pm (four 30-minute starts).
 export const SAMPLE_TIMES = ['5:00 PM', '5:30 PM', '6:00 PM', '6:30 PM', '7:00 PM'];

@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
   lead: { fontFamily: fonts.body, fontSize: 24, lineHeight: 30, color: colors.mist, maxWidth: 480 },
   freeAdvert: { fontFamily: fonts.body, fontSize: 24, lineHeight: 30, fontWeight: 700, color: colors.black, maxWidth: 480 },
   cta: { backgroundColor: colors.sun, paddingHorizontal: 28, paddingVertical: 14, borderRadius: 999 },
-  ctaText: { fontFamily: fonts.body, fontSize: 17, fontWeight: '700', color: colors.slateDeep },
+  ctaText: { fontFamily: fonts.body, fontSize: 17, fontWeight: '700', color: colors.black },
   heroPhotoWrap: { width: 320, height: 380, borderTopLeftRadius: 160, borderTopRightRadius: 160, borderBottomLeftRadius: 24, borderBottomRightRadius: 24, overflow: 'hidden', backgroundColor: colors.slateDeep },
   heroPhoto: { width: '100%', height: '100%' },
 
